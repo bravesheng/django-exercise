@@ -44,9 +44,9 @@ from django.http import Http404
 
 def hours_ahead(request, offset):
     try:
-        offset = int(offset)
+        hour_offset = int(offset)
     except ValueError:
         raise Http404()
-    dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (offset, dt)
+    next_time = datetime.datetime.now() + datetime.timedelta(hours=hour_offset)
+    return render_to_response('hours_ahead.html', locals())
     return HttpResponse(html)
