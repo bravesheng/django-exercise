@@ -14,7 +14,7 @@ class BookAdmin(admin.ModelAdmin):
     date_hierarchy = 'publication_date'
     ordering = ('-publication_date',)
     fields = ('title', 'authors', 'publisher', 'publication_date')
-    fields = ('title', 'authors', 'publisher')
+    #fields = ('title', 'authors', 'publisher')
     filter_horizontal = ('authors',)
     raw_id_fields = ('publisher',)
 
